@@ -20,3 +20,14 @@ app.app_context().push()
 item2 = Item(name="Samsung", price=400, barcode="45345453453", description="desc2")
 db.session.add(item2)
 db.session.commit()
+
+***with multifile:
+from market.__init__ import app,db
+app.app_context().push()
+db.create_all()
+
+this adds new User:
+from market.models import User,Item
+u1 = User(username="jsc", password_hash="123456", email_address="aa@ss.com")
+db.session.add(u1)
+db.session.commit()
