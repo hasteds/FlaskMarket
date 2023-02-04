@@ -1,16 +1,11 @@
 from market import app
 from flask import render_template
-from market.models import Item
+from market.models import Item, User
 
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template("home.html")
-
-
-@app.route("/about/<username>")
-def about(username):
-    return render_template("about.html")
 
 
 @app.route("/market")
