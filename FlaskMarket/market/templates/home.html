@@ -8,6 +8,23 @@
 
 {% block body %}
 
-    <p> This is an home page </p>
+    <div class="px-4 py-5 my-5 text-center">
+        <i class="fa-solid fa-cog fa-spin fa-5x" style="--fa-animation-direction: reverse;" ></i>
+        
+        <h1 class="display-5 fw-bold">Welcome to my small market!</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Buy and sell your mobile phones, computer components and other technology.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center py-3">
+                <i class="fa-solid fa-desktop fa-3x"></i>
+                <i class="fa-solid fa-mobile-screen fa-3x"></i>
+                <i class="fa-solid fa-headphones fa-3x"></i>
+            </div>
+            <p class="lead mb-4">Start buying and selling on your market.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center py-3">
+                <a class="btn btn-primary btn-lg px-4 gap-3" href="{{ url_for('market_page') }}">Get started</a>
+                <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="{{ url_for('register_page') }}">Not a user?</a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

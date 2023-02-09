@@ -1,40 +1,35 @@
 {% extends "base.html" %}
 
-{% block title%}
+{% block title %}
 
-    Register
+    Login
 
 {% endblock %}
 
 {% block body %}
 
     <div class="container text-center py-5">
-        <p class="h3 mb-3 font-weight-normal">Please Create your Account</p>
+        <p class="h3 mb-3 font-weight-normal">Please Login to your Account</p> 
         <br>
-        <form method="POST" class="form-register">
+        <form method="POST" class="form-login">
             {{ form.hidden_tag() }}
 
             {{ form.username.label(class="form-label") }}
             {{ form.username(class="form-control", placeholder="User Name") }}
 
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control", placeholder="Email") }}
-
             {{ form.password.label(class="form-label") }}
             {{ form.password(class="form-control", placeholder="Password") }}
-
-            {{ form.password_repeat.label(class="form-label") }}
-            {{ form.password_repeat(class="form-control", placeholder="Please repeat the password") }}
             <br>
             <div class="d-grid gap-2">
                 {{ form.submit(class="btn btn-primary me-md-2")}}
             </div>
             <br>
             <div class="checkbox mb-3">
-                <h6>Already have an account?</h6>
-                <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+                <h6>Do not have an account?</h6>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
             </div>
-        </form>
+            
+        </form>         
     </div>
 
 {% endblock %}
