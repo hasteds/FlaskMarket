@@ -1,0 +1,33 @@
+<div class="modal fade" id="sell_modal-{{ item.id }}"
+     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            {{ item.name }}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+            <h5>Please comfirm your selling of :</h5>
+            <br>
+            <h6>
+                {{ item.name }} {{ item.description }}
+                <br>
+                Price: 
+                <br>
+                {{ item.price }}$
+            </h6>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+            {{ sell_form.hidden_tag() }}
+            <input id="sold_item" name="sold_item" type="hidden" value="{{ item.name }}">
+            {{ sell_form.submit(class="btn btn-outline-success")}}
+        </form>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

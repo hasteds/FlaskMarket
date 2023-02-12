@@ -1,0 +1,54 @@
+<div class="modal fade" id="info_modal-{{ item.id }}"
+     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            {{ item.name }}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            {{ item.description }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="buy_modal-{{ item.id }}"
+     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            {{ item.name }}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+            <h5>Please comfirm your purchase of :</h5>
+            <br>
+            <h6>
+                {{ item.name }} {{ item.description }}
+                <br>
+                Price: 
+                <br>
+                {{ item.price }}$
+            </h6>
+      </div>
+      <div class="modal-footer">
+        <form method="POST">
+            {{ purchase_form.hidden_tag() }}
+            <input id="purchased_item" name="purchased_item" type="hidden" value="{{ item.name }}">
+            {{ purchase_form.submit(class="btn btn-outline-success")}}
+        </form>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
