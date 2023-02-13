@@ -17,6 +17,7 @@ def market_page():
     sell_form = SellForm()
     
     if request.method == "POST":
+        # Purchasing of items:
         purchased_item = request.form.get("purchased_item")
         item_obj = Item.query.filter_by(name=purchased_item).first()
         if item_obj is not None:
@@ -25,6 +26,17 @@ def market_page():
                 flash(f"Item: {item_obj.name} purchased succesfully for {item_obj.price}$", category="success")
             else:
                 flash(f"You dont have enough money to purchase {item_obj.name}", category="danger")
+        
+        # Selling of items:
+        sold_item = request.form.get("sold_item")
+        item_obj_tosell = Item.query.filter_by(name=sold_item).first()
+        if item_obj_tosell is not None:
+            if current_user.is_owner(item_obj_tosell):
+                item_obj_tosell.sell(current_user)
+                flash(f"You successfully sold {item_obj_tosell.name} for {item_obj_tosell.price}$", category="success")
+            else:
+                flash(f"Error, could not sell {item_obj_tosell.name}", category="danger")
+        
         return redirect(url_for("market_page"))
     
     if request.method == "GET":
